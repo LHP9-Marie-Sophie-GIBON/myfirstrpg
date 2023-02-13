@@ -25,6 +25,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
     <link rel="stylesheet" href="assets/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 </head>
 
 <body>
@@ -56,34 +57,33 @@
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
-                                <div class="row">
-                                    <div class="col-6">
-                                        <img src="<?= $warrior->getImage() ?>" class="img-fluid rounded-start" alt="...">
-                                    </div>
-                                    <div class="col-6">
-                                        <div class="progress" role="progressbar" aria-label="Basic example" aria-valuenow="<?= $warrior->getHealth() / 2000 * 100 ?>" aria-valuemin="0" aria-valuemax="100">
-                                            <div class="progress-bar bg-success" style="width: <?= $warrior->getHealth() / 2000 * 100 ?>%">
-                                                <?= $warrior->getHealth() ?>
-                                            </div>
-                                        </div>
-                                        <div class="progress" role="progressbar" aria-label="Basic example" aria-valuenow="<?= $warrior->getRage() ?>" aria-valuemin="0" aria-valuemax="100">
-                                            <div class="progress-bar bg-danger" style="width: <?= $warrior->getRage() ?>%">
-                                                Rage : <?= $warrior->getRage() ?>
-                                            </div>
-                                        </div>
-                                        <div class="progress" role="progressbar" aria-label="Basic example" aria-valuenow="<?= $warrior->getAttack() / 1000 * 100 ?>" aria-valuemin="0" aria-valuemax="100">
-                                            <div class="progress-bar bg-info" style="width: <?= $warrior->getAttack() / 1000 * 100 ?>%">
-                                                Attack : <?= $warrior->getAttack() ?>
-                                            </div>
-                                        </div>
-                                        <div class="progress" role="progressbar" aria-label="Basic example" aria-valuenow="<?= $warrior->getArmor() / 1000 * 100 ?>" aria-valuemin="0" aria-valuemax="100">
-                                            <div class="progress-bar bg-warning" style="width: <?= $warrior->getArmor() / 1000 * 100 ?>%">
-                                                Armor : <?= $warrior->getArmor() ?>
-                                            </div>
-                                        </div>
-
-                                    </div>
+                                <div class="text-center">
+                                    <img src="<?= $warrior->getImage() ?>" class="img-fluid rounded-start" alt="...">
                                 </div>
+                                <div>
+                                    <div class="progress" role="progressbar" aria-label="Basic example" aria-valuenow="<?= $warrior->getHealth() / 2000 * 100 ?>" aria-valuemin="0" aria-valuemax="100">
+                                        <div class="progress-bar bg-success" style="width: <?= $warrior->getHealth() / 2000 * 100 ?>%">
+                                            <?= $warrior->getHealth() ?>
+                                        </div>
+                                    </div>
+                                    <div class="progress" role="progressbar" aria-label="Basic example" aria-valuenow="<?= $warrior->getRage() ?>" aria-valuemin="0" aria-valuemax="100">
+                                        <div class="progress-bar bg-danger" style="width: <?= $warrior->getRage() ?>%">
+                                            Rage : <?= $warrior->getRage() ?>
+                                        </div>
+                                    </div>
+                                    <div class="progress" role="progressbar" aria-label="Basic example" aria-valuenow="<?= $warrior->getAttack() / 1000 * 100 ?>" aria-valuemin="0" aria-valuemax="100">
+                                        <div class="progress-bar bg-info" style="width: <?= $warrior->getAttack() / 1000 * 100 ?>%">
+                                            Attack : <?= $warrior->getAttack() ?>
+                                        </div>
+                                    </div>
+                                    <div class="progress" role="progressbar" aria-label="Basic example" aria-valuenow="<?= $warrior->getArmor() / 1000 * 100 ?>" aria-valuemin="0" aria-valuemax="100">
+                                        <div class="progress-bar bg-warning" style="width: <?= $warrior->getArmor() / 1000 * 100 ?>%">
+                                            Armor : <?= $warrior->getArmor() ?>
+                                        </div>
+                                    </div>
+
+                                </div>
+
 
                             </div>
                             <div class="modal-footer">
@@ -123,30 +123,27 @@
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
-                                <div class="row">
-                                    <div class="col-6">
-                                        <img src="<?= $mage->getImage() ?>" class="img-fluid rounded-start" alt="...">
-                                    </div>
-                                    <div class="col-6">
-                                        <div class="progress" role="progressbar" aria-label="Basic example" aria-valuenow="<?= $mage->getHealth() / 2000 * 100 ?>" aria-valuemin="0" aria-valuemax="100">
-                                            <div class="progress-bar bg-success" style="width: <?= $mage->getHealth() / 2000 * 100 ?>%">
-                                                <?= $mage->getHealth() ?>
-                                            </div>
-                                        </div>
-                                        <div class="progress" role="progressbar" aria-label="Basic example" aria-valuenow="<?= $mage->getAttack() / 1000 * 100 ?>" aria-valuemin="0" aria-valuemax="100">
-                                            <div class="progress-bar bg-info" style="width: <?= $mage->getAttack() / 1000 * 100 ?>%">
-                                                Attack : <?= $mage->getAttack() ?>
-                                            </div>
-                                        </div>
-                                        <div class="progress" role="progressbar" aria-label="Basic example" aria-valuenow="<?= $mage->getArmor() / 1000 * 100 ?>" aria-valuemin="0" aria-valuemax="100">
-                                            <div class="progress-bar bg-warning" style="width: <?= $mage->getArmor() / 1000 * 100 ?>%">
-                                                Armor : <?= $mage->getArmor() ?>
-                                            </div>
-                                        </div>
-
-                                    </div>
+                                <div class="text-center">
+                                    <img src="<?= $mage->getImage() ?>" class="img-fluid rounded-start" alt="...">
                                 </div>
+                                <div>
+                                    <div class="progress" role="progressbar" aria-label="Basic example" aria-valuenow="<?= $mage->getHealth() / 2000 * 100 ?>" aria-valuemin="0" aria-valuemax="100">
+                                        <div class="progress-bar bg-success" style="width: <?= $mage->getHealth() / 2000 * 100 ?>%">
+                                            <?= $mage->getHealth() ?>
+                                        </div>
+                                    </div>
+                                    <div class="progress" role="progressbar" aria-label="Basic example" aria-valuenow="<?= $mage->getAttack() / 1000 * 100 ?>" aria-valuemin="0" aria-valuemax="100">
+                                        <div class="progress-bar bg-info" style="width: <?= $mage->getAttack() / 1000 * 100 ?>%">
+                                            Attack : <?= $mage->getAttack() ?>
+                                        </div>
+                                    </div>
+                                    <div class="progress" role="progressbar" aria-label="Basic example" aria-valuenow="<?= $mage->getArmor() / 1000 * 100 ?>" aria-valuemin="0" aria-valuemax="100">
+                                        <div class="progress-bar bg-warning" style="width: <?= $mage->getArmor() / 1000 * 100 ?>%">
+                                            Armor : <?= $mage->getArmor() ?>
+                                        </div>
+                                    </div>
 
+                                </div>
                             </div>
                             <div class="modal-footer">
                                 <input type="submit" value="choose" name="mage">
@@ -185,29 +182,29 @@
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
-                                <div class="row">
-                                    <div class="col-6">
-                                        <img src="<?= $archer->getImage() ?>" class="img-fluid rounded-start" alt="...">
-                                    </div>
-                                    <div class="col-6">
-                                        <div class="progress" role="progressbar" aria-label="Basic example" aria-valuenow="<?= $archer->getHealth() / 2000 * 100 ?>" aria-valuemin="0" aria-valuemax="100">
-                                            <div class="progress-bar bg-success" style="width: <?= $archer->getHealth() / 2000 * 100 ?>%">
-                                                <?= $archer->getHealth() ?>
-                                            </div>
-                                        </div>
-                                        <div class="progress" role="progressbar" aria-label="Basic example" aria-valuenow="<?= $archer->getAttack() / 1000 * 100 ?>" aria-valuemin="0" aria-valuemax="100">
-                                            <div class="progress-bar bg-info" style="width: <?= $archer->getAttack() / 1000 * 100 ?>%">
-                                                Attack : <?= $archer->getAttack() ?>
-                                            </div>
-                                        </div>
-                                        <div class="progress" role="progressbar" aria-label="Basic example" aria-valuenow="<?= $archer->getArmor() / 1000 * 100 ?>" aria-valuemin="0" aria-valuemax="100">
-                                            <div class="progress-bar bg-warning" style="width: <?= $archer->getArmor() / 1000 * 100 ?>%">
-                                                Armor : <?= $archer->getArmor() ?>
-                                            </div>
-                                        </div>
 
-                                    </div>
+                                <div class="text-center">
+                                    <img src="<?= $archer->getImage() ?>" class="img-fluid rounded-start" alt="...">
                                 </div>
+                                <div class="col">
+                                    <div class="progress" role="progressbar" aria-label="Basic example" aria-valuenow="<?= $archer->getHealth() / 2000 * 100 ?>" aria-valuemin="0" aria-valuemax="100">
+                                        <div class="progress-bar bg-success" style="width: <?= $archer->getHealth() / 2000 * 100 ?>%">
+                                            <?= $archer->getHealth() ?>
+                                        </div>
+                                    </div>
+                                    <div class="progress" role="progressbar" aria-label="Basic example" aria-valuenow="<?= $archer->getAttack() / 1000 * 100 ?>" aria-valuemin="0" aria-valuemax="100">
+                                        <div class="progress-bar bg-info" style="width: <?= $archer->getAttack() / 1000 * 100 ?>%">
+                                            Attack : <?= $archer->getAttack() ?>
+                                        </div>
+                                    </div>
+                                    <div class="progress" role="progressbar" aria-label="Basic example" aria-valuenow="<?= $archer->getArmor() / 1000 * 100 ?>" aria-valuemin="0" aria-valuemax="100">
+                                        <div class="progress-bar bg-warning" style="width: <?= $archer->getArmor() / 1000 * 100 ?>%">
+                                            Armor : <?= $archer->getArmor() ?>
+                                        </div>
+                                    </div>
+
+                                </div>
+
 
                             </div>
                             <div class="modal-footer">
@@ -260,65 +257,94 @@
                     $_SESSION['archer'] = $archer;
                 } else
 
-                // afficher les joueurs et les monstres au refresh de la page
-                if (isset($_SESSION['warrior']) && isset ($_SESSION['monster'])) {
-                    $monster = $_SESSION['monster'];
-                    showWarrior($warrior);
-                    showMonster($monster);
-                } else if (isset($_SESSION['mage']) && isset ($_SESSION['monster'])) {
-                    $monster = $_SESSION['monster'];
-                    showPlayer($mage);
-                    showMonster($monster);
-                } else if (isset($_SESSION['archer']) && isset ($_SESSION['monster'])) {
-                    $monster = $_SESSION['monster'];
-                    showPlayer($archer);
-                    showMonster($monster);
-                } else
+                    // faire combattre monster et player en gardant le player choose
+                    if (isset($_POST['fight']) && isset($_SESSION['warrior'])) {
 
-                // faire combattre monster et player en gardant le player choose
-                if (isset($_POST['fight']) && isset($_SESSION['warrior'])) {
+                        $monster = $_SESSION['monster'];
+                        showWarrior($warrior);
+                        showMonster($monster);
 
-                    $monster = $_SESSION['monster'];
-                    showWarrior($warrior);
-                    showMonster($monster);
+                        $warrior->attacked($monster);
 
-                    $warrior->attacked($monster);
+                        if ($warrior->getRage() == 100) {
+                            $monster->attacked($warrior);
+                            $warrior->setRage(0);
+                        }
 
-                    if ($warrior->getRage() == 100) {
-                        $monster->attacked($warrior);
-                        $warrior->setRage(0);
-                    }
+                        // if warrior ou monster n'ont plus de point de vie, game over
+                        if ($warrior->getHealth() <= 0) {
+                            echo "<h1>GAME OVER</h1>";
+                            
+                        } else if ($monster->getHealth() <= 0) {
+                            echo "<h1>YOU WIN</h1>";
+                            
+                        }
 
-                    $round = $round + 1;
-                    $_SESSION['round'] = $round;
-                } else if (isset($_POST['fight']) && isset($_SESSION['mage'])) {
-                    $monster = $_SESSION['monster'];
-                    showPlayer($mage);
-                    showMonster($monster);
+                        $round = $round + 1;
+                        $_SESSION['round'] = $round;
 
-                    $monster->attacked($mage);
-                    $mage->attacked($monster);
+                    
+                    } else if (isset($_POST['fight']) && isset($_SESSION['mage'])) {
+                        $monster = $_SESSION['monster'];
+                        showPlayer($mage);
+                        showMonster($monster);
 
-                    $round = $round + 1;
-                    $_SESSION['round'] = $round;
-                } else if (isset($_POST['fight']) && isset($_SESSION['archer'])) {
-                    $monster = $_SESSION['monster'];
-                    showPlayer($archer);
-                    showMonster($monster);
+                        $monster->attacked($mage);
+                        $mage->attacked($monster);
 
-                    if ($round % 2 == 0) {
-                        $monster->attacked($archer);
-                    }
-                    $archer->attacked($monster);
+                        // if mage ou monster n'ont plus de point de vie game over
+                        if ($mage->getHealth() <= 0) {
+                            echo "<h1>GAME OVER</h1>";
+                            
+                        } else if ($monster->getHealth() <= 0) {
+                            echo "<h1>YOU WIN</h1>";
+                            
+                        }
 
-                    $round = $round + 1;
-                    $_SESSION['round'] = $round;
-                } else {
-                    echo '
-                    <div class="h3 fw-bold row text-center chooseHero">
-                    Click on the cards and choose your hero
-                    </div>';
-                }
+                        $round = $round + 1;
+                        $_SESSION['round'] = $round;
+                    } else if (isset($_POST['fight']) && isset($_SESSION['archer'])) {
+                        $monster = $_SESSION['monster'];
+                        showPlayer($archer);
+                        showMonster($monster);
+
+                        if ($round % 2 == 0) {
+                            $monster->attacked($archer);
+                        }
+                        $archer->attacked($monster);
+
+                        // if archer ou monster n'ont plus de point de vie game over
+                        if ($archer->getHealth() <= 0) {
+                            echo "<h1>GAME OVER</h1>";
+                            
+                        } else if ($monster->getHealth() <= 0) {
+                            echo "<h1>YOU WIN</h1>";
+                            
+                        }
+
+                        $round = $round + 1;
+                        $_SESSION['round'] = $round;
+                    } else
+
+                        // afficher les joueurs et les monstres au refresh de la page
+                        if (isset($_SESSION['warrior']) && isset($_SESSION['monster'])) {
+                            $monster = $_SESSION['monster'];
+                            showWarrior($warrior);
+                            showMonster($monster);
+                        } else if (isset($_SESSION['mage']) && isset($_SESSION['monster'])) {
+                            $monster = $_SESSION['monster'];
+                            showPlayer($mage);
+                            showMonster($monster);
+                        } else if (isset($_SESSION['archer']) && isset($_SESSION['monster'])) {
+                            $monster = $_SESSION['monster'];
+                            showPlayer($archer);
+                            showMonster($monster);
+                        } else {
+                            echo '
+                                <div class="h3 fw-bold row text-center chooseHero">
+                                Click on the cards and choose your hero
+                                </div>';
+                        }
                 ?>
             </div>
         </div>

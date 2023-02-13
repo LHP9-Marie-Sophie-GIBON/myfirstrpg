@@ -53,8 +53,6 @@ img.player {
 }
 
 
-
-
 div.col-md-4 img {
     /* image fill */
     height: 20vh;
@@ -66,6 +64,8 @@ img.monster {
     height: 300px !important;
    
 }
+
+/* animation faux reflet */
 
 
 

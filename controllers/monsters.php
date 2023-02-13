@@ -90,7 +90,7 @@ function showMonster($monster) {
             ' . $monster->getArmor() . '
             </div>
         </div>
-            <img src="'.$monster->getImage().'" alt="" class="monster">
+            <img src="'.$monster->getImage().'" alt="" class="monster animate__animated animate__tada">
     </div>
     ';
 }

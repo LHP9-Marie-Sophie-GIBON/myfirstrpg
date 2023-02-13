@@ -76,7 +76,7 @@ function showWarrior($warrior)
             ' . $warrior->getRage() . '
             </div>
         </div>
-        <img src="' . $warrior->getImage() . '" alt="" class="player">
+        <img src="' . $warrior->getImage() . '" alt="" class="player animate__animated animate__flash">
     </div>
     ';
 }

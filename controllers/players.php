@@ -52,7 +52,7 @@ function showPlayer($monster) {
             '.$monster->getHealth().'
             </div>
          </div>
-        <img src="'.$monster->getImage().'" alt="" class="player">
+        <img src="'.$monster->getImage().'" alt="" class="player animate__animated animate__flash">
     </div>
     ';
 }

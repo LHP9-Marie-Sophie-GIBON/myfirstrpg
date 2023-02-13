@@ -32,14 +32,34 @@ class Warrior extends Character
         $this->rage = $rage;
     }
 
-    // créer une method attack enlevant des points de vie à monster
-    public function attack($target)
-    {
-        $target->setHealth($target->getHealth() - $this->getAttack());
-    }
+    public function attacked($monster)
+        {
+            if ($this->getArmor() > $monster->getAttack()) {
+                $damage = 0;
+            } else {
+                 $damage = ($monster->getAttack() - $this->getArmor());
+            }
+
+            // soustraire à health le damage
+            $this->setHealth($this->getHealth() - $damage);
+            
+            // pour chaque attaque, augmenter la valeur de rage de 25
+            $this->setRage($this->getRage() + 25);
+            
+            // si health est inférieur à 0, health = 0
+            if ($this->getHealth() < 0) {
+                $this->setHealth(0);
+            }
+
+            // si rage est supérieur à 100, rage = 100
+            if ($this->getRage() > 100) {
+                $this->setRage(100);
+            }
+        }
+
 }
 
-$warrior = new Warrior('Warrior', 0, 2000, 1000, 1000, 'assets/img/warrior.webp');
+
 
 // Créer une fonction showWarrior
 function showWarrior($warrior)

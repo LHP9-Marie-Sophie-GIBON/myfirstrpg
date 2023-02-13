@@ -20,26 +20,38 @@ class Player extends Character
 
     }
 
-        // créer une method attack enlevant des points de vie de player
-        public function attack($target) {
-            $target->setHealth($target->getHealth() - $this->getAttack());
-           
-            
+    public function attacked($monster) {
+        // si armor est supérieur à attack, damage = 0
+        if ($this->getArmor() > $monster->getAttack()) {
+            $damage = 0;
+        } else {
+            $damage = ($monster->getAttack() - $this->getArmor());
         }
+
+        // soustraire à health le damage
+        $this->setHealth($this->getHealth() - $damage);
+
+        // si health est inférieur à 0, health = 0
+        if ($this->getHealth() < 0) {
+            $this->setHealth(0);
+        }
+    }
+
+
    
    
 }
  // Créer une fonction showPlayer
-function showPlayer($player) {
+function showPlayer($monster) {
     echo '
     <div class="col-5 ">
-        <div class="h3"> '. $player->getName() .' </div>
-        <div class="progress" role="progressbar" aria-label="Basic example" aria-valuenow="'. $player->getHealth() / 2000 * 100 .'" aria-valuemin="0" aria-valuemax="100">
-            <div class="progress-bar bg-success" style="width:'. $player->getHealth() / 2000 * 100 .'%">
-            '.$player->getHealth().'
+        <div class="h3"> '. $monster->getName() .' </div>
+        <div class="progress" role="progressbar" aria-label="Basic example" aria-valuenow="'. $monster->getHealth() / 2000 * 100 .'" aria-valuemin="0" aria-valuemax="100">
+            <div class="progress-bar bg-success" style="width:'. $monster->getHealth() / 2000 * 100 .'%">
+            '.$monster->getHealth().'
             </div>
          </div>
-        <img src="'.$player->getImage().'" alt="">
+        <img src="'.$monster->getImage().'" alt="">
     </div>
     ';
 }

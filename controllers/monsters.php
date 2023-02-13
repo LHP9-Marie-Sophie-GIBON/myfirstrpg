@@ -22,30 +22,33 @@ class Monster extends Character {
         $this->type = $type;
     }
 
-    // créer une method attack enlevant des points de vie de player moins la valeur de armor
+    // créer une method attacked 
+    public function attacked($player) {
+        // si armor est supérieur à attack, damage = 0
+        if ($this->getArmor() > $player->getAttack()) {
+            $damage = 0;
+        } else {
+            $damage = ($player->getAttack() - $this->getArmor());
+        }
 
-    public function attack($target) {
-        $damage = $this->getAttack() - $target->getArmor();  
-        $target->setHealth($target->getHealth() - $damage);
+        // soustraire à health le damage
+        $this->setHealth($this->getHealth() - $damage);
 
+        // si health est inférieur à 0, health = 0
+        if ($this->getHealth() < 0) {
+            $this->setHealth(0);
+        }
     }
-
-    // créer une method attackRage enlevant des points de vie et augmentant la rage de player
-    public function attackRage($target) {
-        $target->setHealth($target->getHealth() - $this->getAttack());
-        $target->setRage($target->getRage() + 10);
-    }
-
 }
 
 // créer un premier monstre
-$monster1 = new Monster(1500, 250, 100, 'assets/img/monster1.jpg', 'Titan');
-$monster2 = new Monster(100, 10, 5, 'assets/img/monster2.webp', 'Goblin');
-$monster3 = new Monster(100, 10, 5,'assets/img/monster3.jpg', 'Spectre');
-$monster4 = new Monster(100, 10, 5,'assets/img/monster4.webp','Dragon');
-$monster5 = new Monster(100, 10, 5,'assets/img/monster5.jpg', 'Black mage');
-$monster6 = new Monster(100, 10, 5,'assets/img/monster6.jpg', 'Chocobo');
-$monster7 = new Monster(100, 10, 5, 'assets/img/monster7.jpg', 'Carbuncle');
+$monster1 = new Monster(1500, 350,  100, 'assets/img/monster1.jpg', 'Titan');
+$monster2 = new Monster(1000, 300, 30, 'assets/img/monster2.webp', 'Goblin');
+$monster3 = new Monster(1250, 300, 50,'assets/img/monster3.jpg', 'Spectre');
+$monster4 = new Monster(2000, 400, 100,'assets/img/monster4.webp','Dragon');
+$monster5 = new Monster(1750, 350, 100,'assets/img/monster5.jpg', 'Black mage');
+$monster6 = new Monster(1000, 260, 10,'assets/img/monster6.jpg', 'Chocobo');
+$monster7 = new Monster(1250, 250, 50, 'assets/img/monster7.jpg', 'Carbuncle');
 
 
 // afficher de façon aléatoire un monstre entre 1 (monster1) et 7 (monster7)
@@ -72,18 +75,18 @@ function showMonster($monster) {
     echo '
     <div class="col-5 monster">
     <div class="h3"> '. $monster->getType() .' </div>
-        <div class="progress" role="progressbar" aria-label="Basic example" aria-valuenow="' . $monster->getHealth() . '?>" aria-valuemin="0" aria-valuemax="100">
-            <div class="progress-bar bg-success" style="width: ' . $monster->getHealth() . '%">
+        <div class="progress" role="progressbar" aria-label="Basic example" aria-valuenow="' . $monster->getHealth() /2000 *100 . '?>" aria-valuemin="0" aria-valuemax="1000">
+            <div class="progress-bar bg-success" style="width: ' . $monster->getHealth() /2000 *100 . '%">
             ' . $monster->getHealth() . '
             </div>
         </div>
-        <div class="progress" role="progressbar" aria-label="Basic example" aria-valuenow="' . $monster->getAttack() . '" aria-valuemin="0" aria-valuemax="100">
-            <div class="progress-bar bg-danger" style="width: ' . $monster->getAttack() . '%">
+        <div class="progress" role="progressbar" aria-label="Basic example" aria-valuenow="' . $monster->getAttack() /550 *100 . '" aria-valuemin="0" aria-valuemax="1000">
+            <div class="progress-bar bg-danger" style="width: ' . $monster->getAttack() /550 *100 . '%">
             ' . $monster->getAttack() . '
             </div>
         </div>
-        <div class="progress" role="progressbar" aria-label="Basic example" aria-valuenow="' . $monster->getArmor() . '" aria-valuemin="0" aria-valuemax="100">
-            <div class="progress-bar bg-warning" style="width: ' . $monster->getArmor() . '%">
+        <div class="progress" role="progressbar" aria-label="Basic example" aria-valuenow="' . $monster->getArmor() . '" aria-valuemin="0" aria-valuemax="1000">
+            <div class="progress-bar bg-warning" style="width: ' . $monster->getArmor() / 100 *100 . '%">
             ' . $monster->getArmor() . '
             </div>
         </div>

@@ -8,8 +8,13 @@
     require_once 'controllers/monsters.php';
     require_once 'controllers/warrior.php';
 
-
     session_start();
+
+    if (isset($_SESSION['round'])) {
+        $round = $_SESSION['round'];
+    } else {
+        $round = 0;
+    }
 
     ?>
 
@@ -28,7 +33,7 @@
             <!-- Card Warrior -->
             <?php
             if (!isset($_SESSION['warrior'])) {
-                $warrior = new Warrior('Warrior', 0, 2000, 500, 1000, 'assets/img/warrior.webp');
+                $warrior = new Warrior('Warrior', 0, 2000, 750, 500, 'assets/img/warrior.webp');
             } else {
                 $warrior = $_SESSION['warrior'];
             }
@@ -78,7 +83,7 @@
             <!-- Card Mage -->
             <?php
             if (!isset($_SESSION['mage'])) {
-                $mage = new Player('Mage', 1000, 150, 250, 'assets/img/mage.jpg');
+                $mage = new Player('Mage', 1000, 450, 250, 'assets/img/mage.jpg');
             } else {
                 $mage = $_SESSION['mage'];
             }
@@ -123,7 +128,7 @@
             <!-- Card Archer -->
             <?php
             if (!isset($_SESSION['archer'])) {
-                $archer = new Player('Archer', 1500, 250, 500, 'assets/img/archer.jpg');
+                $archer = new Player('Archer', 1500, 600, 350, 'assets/img/archer.jpg');
             } else {
                 $archer = $_SESSION['archer'];
             }
@@ -200,24 +205,52 @@
             }
 
             // faire combattre monster et player en gardant le player choose
-            if (isset($_POST['fight']) && isset($_SESSION['warrior'])) {
-                $monster = $_SESSION['monster']; 
-                $monster->attackRage($warrior);
 
-                if ($warrior->getRage() == 100) {
-                     $warrior->attack($monster);
+            if (isset($_POST['fight']) && isset($_SESSION['warrior'])) {
+                
+                $monster = $_SESSION['monster']; 
+                $warrior->attacked($monster);
+                $monster->attacked($warrior);
+
+                $round = $round +1; 
+                $_SESSION['round'] = $round; 
+
+                // si warrior KO, session destroy
+                if ($warrior->getHealth() <= 0) {
+                    echo "vous etes mort";
+                    session_destroy();
                 }
-               
 
             } else if (isset($_POST['fight']) && isset($_SESSION['mage'])) {
                 $monster = $_SESSION['monster']; 
-                $monster->attack($mage);
-                $mage->attack($monster);
+                $monster->attacked($mage);
+                $mage->attacked($monster);
+
+                $round = $round +1; 
+                $_SESSION['round'] = $round; 
+                // si mage ko, session destroy
+                if ($mage->getHealth() <= 0) {
+                    echo "vous etes mort";
+
+                    session_destroy();
+                }
 
             } else if (isset($_POST['fight']) && isset($_SESSION['archer'])) {
                 $monster = $_SESSION['monster']; 
-                $monster->attack($archer);
-                $archer->attack($monster);
+
+                if ($round % 2 == 0) {
+                    $monster->attacked($archer);
+                }
+                $archer->attacked($monster);
+
+                $round = $round +1; 
+                $_SESSION['round'] = $round; 
+                // si archer ko, session destroy
+                if ($archer->getHealth() <= 0) {
+                    echo "vous etes mort";
+
+                    session_destroy();
+                }
 
             }
 

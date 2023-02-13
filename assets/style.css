@@ -5,6 +5,11 @@ body {
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
+    
+   background-color: rgba(0, 0, 0, 0.263);
+    background-blend-mode: darken;
+
+    
 
     overflow-x: hidden;
 }

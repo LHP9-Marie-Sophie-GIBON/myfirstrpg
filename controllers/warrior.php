@@ -65,10 +65,10 @@ class Warrior extends Character
 function showWarrior($warrior)
 {
     echo '
-    <div class="col-5 ">
+    <div class="col-5 player">
         <div class="h3"> ' . $warrior->getName() . ' </div>
         <div class="progress" role="progressbar" aria-label="Basic example" aria-valuenow="' . $warrior->getHealth() / 2000 * 100 . '" aria-valuemin="0" aria-valuemax="100">
-        <div class="progress-bar bg-success" style="width:' . ($warrior->getHealth() / 2000 * 200) . '%">
+        <div class="progress-bar bg-success" style="width:' . $warrior->getHealth() / 2000 * 100 . '%">
             ' . $warrior->getHealth() . '
             </div>
          </div>
@@ -77,7 +77,7 @@ function showWarrior($warrior)
             ' . $warrior->getRage() . '
             </div>
         </div>
-        <img src="' . $warrior->getImage() . '" alt="">
+        <img src="' . $warrior->getImage() . '" alt="" class="player">
     </div>
     ';
 }

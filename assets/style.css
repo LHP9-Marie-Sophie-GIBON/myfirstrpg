@@ -1,20 +1,27 @@
 .card {
     height: 20vh !important;
+    width: 30vw !important;
 }
 
-
+.card-body {
+    height: 20vh !important;
+    width: 15vw !important;
+}
 .container {
     width: 70vw;
 }
 
-div.col-5 img {
+img.player {
     height: 450px !important;
+    transform: scaleX(-1);
 }
 
 div.col-md-4 img {
-    height: 20vh !important;
+    /* image fill */
+   height: 20vh;
+
 }
 
-div.col-5 img.monster {
+img.monster {
     height: 400px !important;
 }

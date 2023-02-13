@@ -44,14 +44,14 @@ class Player extends Character
  // Créer une fonction showPlayer
 function showPlayer($monster) {
     echo '
-    <div class="col-5 ">
+    <div class="col-5 player">
         <div class="h3"> '. $monster->getName() .' </div>
         <div class="progress" role="progressbar" aria-label="Basic example" aria-valuenow="'. $monster->getHealth() / 2000 * 100 .'" aria-valuemin="0" aria-valuemax="100">
             <div class="progress-bar bg-success" style="width:'. $monster->getHealth() / 2000 * 100 .'%">
             '.$monster->getHealth().'
             </div>
          </div>
-        <img src="'.$monster->getImage().'" alt="">
+        <img src="'.$monster->getImage().'" alt="" class="player">
     </div>
     ';
 }

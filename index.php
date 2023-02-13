@@ -261,9 +261,6 @@
                     if (isset($_POST['fight']) && isset($_SESSION['warrior'])) {
 
                         $monster = $_SESSION['monster'];
-                        showWarrior($warrior);
-                        showMonster($monster);
-
                         $warrior->attacked($monster);
 
                         if ($warrior->getRage() == 100) {
@@ -273,40 +270,40 @@
 
                         // if warrior ou monster n'ont plus de point de vie, game over
                         if ($warrior->getHealth() <= 0) {
-                            echo "<h1>GAME OVER</h1>";
-                            
+                            echo "<h1>GAME OVER</h1>
+                            <a href='deco.php'>Rejouer</a>";
                         } else if ($monster->getHealth() <= 0) {
-                            echo "<h1>YOU WIN</h1>";
-                            
+                            echo "<h1>YOU WIN</h1>
+                            <a href='deco.php'>Rejouer</a>";
+                        } else {
+                            showWarrior($warrior);
+                            showMonster($monster);
                         }
 
                         $round = $round + 1;
                         $_SESSION['round'] = $round;
-
-                    
                     } else if (isset($_POST['fight']) && isset($_SESSION['mage'])) {
                         $monster = $_SESSION['monster'];
-                        showPlayer($mage);
-                        showMonster($monster);
 
                         $monster->attacked($mage);
                         $mage->attacked($monster);
 
                         // if mage ou monster n'ont plus de point de vie game over
                         if ($mage->getHealth() <= 0) {
-                            echo "<h1>GAME OVER</h1>";
-                            
+                            echo "<h1>GAME OVER</h1>
+                            <a href='deco.php'>Rejouer</a>";
                         } else if ($monster->getHealth() <= 0) {
-                            echo "<h1>YOU WIN</h1>";
-                            
+                            echo "<h1>YOU WIN</h1>
+                            <a href='deco.php'>Rejouer</a>";
+                        } else {
+                            showPlayer($mage);
+                            showMonster($monster);
                         }
 
                         $round = $round + 1;
                         $_SESSION['round'] = $round;
                     } else if (isset($_POST['fight']) && isset($_SESSION['archer'])) {
                         $monster = $_SESSION['monster'];
-                        showPlayer($archer);
-                        showMonster($monster);
 
                         if ($round % 2 == 0) {
                             $monster->attacked($archer);
@@ -315,11 +312,14 @@
 
                         // if archer ou monster n'ont plus de point de vie game over
                         if ($archer->getHealth() <= 0) {
-                            echo "<h1>GAME OVER</h1>";
-                            
+                            echo "<h1>GAME OVER
+                            <a href='deco.php'>Rejouer</a></h1>";
                         } else if ($monster->getHealth() <= 0) {
-                            echo "<h1>YOU WIN</h1>";
-                            
+                            echo "<h1>YOU WIN
+                            <a href='deco.php'>Rejouer</a></h1>";
+                        } else {
+                            showPlayer($archer);
+                            showMonster($monster);
                         }
 
                         $round = $round + 1;

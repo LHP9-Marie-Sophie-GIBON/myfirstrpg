@@ -28,7 +28,7 @@
             <!-- Card Warrior -->
             <?php
             if (!isset($_SESSION['warrior'])) {
-                $warrior = new Warrior('Warrior', 0, 2000, 1000, 1000, 'assets/img/warrior.webp');
+                $warrior = new Warrior('Warrior', 0, 2000, 500, 1000, 'assets/img/warrior.webp');
             } else {
                 $warrior = $_SESSION['warrior'];
             }
@@ -78,7 +78,7 @@
             <!-- Card Mage -->
             <?php
             if (!isset($_SESSION['mage'])) {
-                $mage = new Player('Mage', 1000, 250, 250, 'assets/img/mage.jpg');
+                $mage = new Player('Mage', 1000, 150, 250, 'assets/img/mage.jpg');
             } else {
                 $mage = $_SESSION['mage'];
             }
@@ -123,7 +123,7 @@
             <!-- Card Archer -->
             <?php
             if (!isset($_SESSION['archer'])) {
-                $archer = new Player('Archer', 1500, 500, 500, 'assets/img/archer.jpg');
+                $archer = new Player('Archer', 1500, 250, 500, 'assets/img/archer.jpg');
             } else {
                 $archer = $_SESSION['archer'];
             }
@@ -202,8 +202,12 @@
             // faire combattre monster et player en gardant le player choose
             if (isset($_POST['fight']) && isset($_SESSION['warrior'])) {
                 $monster = $_SESSION['monster']; 
-                $monster->attack($warrior);
-                $warrior->attack($monster);
+                $monster->attackRage($warrior);
+
+                if ($warrior->getRage() == 100) {
+                     $warrior->attack($monster);
+                }
+               
 
             } else if (isset($_POST['fight']) && isset($_SESSION['mage'])) {
                 $monster = $_SESSION['monster']; 

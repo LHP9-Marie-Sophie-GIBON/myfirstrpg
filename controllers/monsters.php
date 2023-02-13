@@ -22,10 +22,18 @@ class Monster extends Character {
         $this->type = $type;
     }
 
-    // créer une method attack enlevant des points de vie de player
+    // créer une method attack enlevant des points de vie de player moins la valeur de armor
+
     public function attack($target) {
+        $damage = $this->getAttack() - $target->getArmor();  
+        $target->setHealth($target->getHealth() - $damage);
+
+    }
+
+    // créer une method attackRage enlevant des points de vie et augmentant la rage de player
+    public function attackRage($target) {
         $target->setHealth($target->getHealth() - $this->getAttack());
-        
+        $target->setRage($target->getRage() + 10);
     }
 
 }

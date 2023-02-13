@@ -36,7 +36,6 @@ class Warrior extends Character
     public function attack($target)
     {
         $target->setHealth($target->getHealth() - $this->getAttack());
-      
     }
 }
 

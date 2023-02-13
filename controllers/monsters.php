@@ -42,13 +42,13 @@ class Monster extends Character {
 }
 
 // créer un premier monstre
-$monster1 = new Monster(1500, 470,  100, 'assets/img/monster1.jpg', 'Titan');
-$monster2 = new Monster(1000, 460, 30, 'assets/img/monster2.webp', 'Goblin');
-$monster3 = new Monster(1250, 450, 50,'assets/img/monster3.jpg', 'Spectre');
-$monster4 = new Monster(2000, 410, 100,'assets/img/monster4.webp','Dragon');
-$monster5 = new Monster(1750, 420, 100,'assets/img/monster5.jpg', 'Black mage');
-$monster6 = new Monster(1000, 410, 10,'assets/img/monster6.jpg', 'Chocobo');
-$monster7 = new Monster(1250, 430, 50, 'assets/img/monster7.jpg', 'Carbuncle');
+$monster1 = new Monster(1500, 470,  100, 'assets/img/monster1.png', 'Titan');
+$monster2 = new Monster(1000, 460, 30, 'assets/img/monster2.png', 'Goblin');
+$monster3 = new Monster(1250, 450, 50,'assets/img/monster3.png', 'Spectre');
+$monster4 = new Monster(2000, 410, 100,'assets/img/monster4.png','Dragon');
+$monster5 = new Monster(1750, 420, 100,'assets/img/monster5.png', 'Black mage');
+$monster6 = new Monster(1000, 410, 10,'assets/img/monster6.png', 'Chocobo');
+$monster7 = new Monster(1250, 430, 50, 'assets/img/monster7.png', 'Carbuncle');
 
 
 // afficher de façon aléatoire un monstre entre 1 (monster1) et 7 (monster7)

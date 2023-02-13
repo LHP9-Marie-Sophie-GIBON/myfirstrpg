@@ -60,12 +60,11 @@ class Warrior extends Character
 }
 
 
-
 // Créer une fonction showWarrior
 function showWarrior($warrior)
 {
     echo '
-    <div class="col-5 player">
+    <div class="col-6 player">
         <div class="h3"> ' . $warrior->getName() . ' </div>
         <div class="progress" role="progressbar" aria-label="Basic example" aria-valuenow="' . $warrior->getHealth() / 2000 * 100 . '" aria-valuemin="0" aria-valuemax="100">
         <div class="progress-bar bg-success" style="width:' . $warrior->getHealth() / 2000 * 100 . '%">

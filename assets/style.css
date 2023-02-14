@@ -1,4 +1,11 @@
+html {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+}
+
 body {
+width: 100vw;
 
     background-image: url("img/character-choice.png");
     background-repeat: no-repeat;
@@ -53,7 +60,7 @@ div.col-2 {
 
 
 img.player {
-    height: 450px !important;
+    height: 350px !important;
     transform: scaleX(-1);
 }
 
@@ -70,11 +77,6 @@ img.monster {
    
 }
 
-/* animation faux reflet */
-
-
-
-
 .arena {
     background-image: url(img/battle.jpg);
     background-size: cover;
@@ -83,6 +85,8 @@ img.monster {
     display: flex;
     justify-content: center;
     align-items: center;
+
+    border-radius: 30px;
 }
 
 .arena div.row {
@@ -101,4 +105,13 @@ img.monster {
 
 .chooseHero {
     height: 100px !important;
+}
+
+.reset {
+    animation: pulse 1s infinite;
+}
+
+.navbar, .offcanvas {
+    background-color: rgba(247, 241, 212, 0.83);
+    
 }

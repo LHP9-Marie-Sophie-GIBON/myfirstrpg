@@ -26,10 +26,41 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
     <link rel="stylesheet" href="assets/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link rel="icon" href="assets/img/header.gif">
 </head>
 
 <body>
-    <div class="row mt-5">
+    <header>
+        <nav class="navbar fixed-top">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#"><img src="assets/img/Site-logo.webp" alt="" style="height: 50px;"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Final_Fantasy_logo_with_japanese_name.svg/1200px-Final_Fantasy_logo_with_japanese_name.svg.png" alt="" style="height: 45px;"></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+                    <div class="offcanvas-header">
+                        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">MENU</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                    </div>
+                    <div class="offcanvas-body">
+                        <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="#">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Characters</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Enemies</a>
+                            </li>
+                        </ul>
+                        
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="row justify-content-center">
 
         <!-- Character-choice -->
         <div class="col-2 justify-content-center">
@@ -68,17 +99,17 @@
                                     </div>
                                     <div class="progress" role="progressbar" aria-label="Basic example" aria-valuenow="<?= $warrior->getRage() ?>" aria-valuemin="0" aria-valuemax="100">
                                         <div class="progress-bar bg-danger" style="width: <?= $warrior->getRage() ?>%">
-                                            Rage : <?= $warrior->getRage() ?>
+                                            <?= $warrior->getRage() ?>
                                         </div>
                                     </div>
                                     <div class="progress" role="progressbar" aria-label="Basic example" aria-valuenow="<?= $warrior->getAttack() / 1000 * 100 ?>" aria-valuemin="0" aria-valuemax="100">
                                         <div class="progress-bar bg-info" style="width: <?= $warrior->getAttack() / 1000 * 100 ?>%">
-                                            Attack : <?= $warrior->getAttack() ?>
+                                            <?= $warrior->getAttack() ?>
                                         </div>
                                     </div>
                                     <div class="progress" role="progressbar" aria-label="Basic example" aria-valuenow="<?= $warrior->getArmor() / 1000 * 100 ?>" aria-valuemin="0" aria-valuemax="100">
                                         <div class="progress-bar bg-warning" style="width: <?= $warrior->getArmor() / 1000 * 100 ?>%">
-                                            Armor : <?= $warrior->getArmor() ?>
+                                            <?= $warrior->getArmor() ?>
                                         </div>
                                     </div>
 
@@ -134,12 +165,12 @@
                                     </div>
                                     <div class="progress" role="progressbar" aria-label="Basic example" aria-valuenow="<?= $mage->getAttack() / 1000 * 100 ?>" aria-valuemin="0" aria-valuemax="100">
                                         <div class="progress-bar bg-info" style="width: <?= $mage->getAttack() / 1000 * 100 ?>%">
-                                            Attack : <?= $mage->getAttack() ?>
+                                            <?= $mage->getAttack() ?>
                                         </div>
                                     </div>
                                     <div class="progress" role="progressbar" aria-label="Basic example" aria-valuenow="<?= $mage->getArmor() / 1000 * 100 ?>" aria-valuemin="0" aria-valuemax="100">
                                         <div class="progress-bar bg-warning" style="width: <?= $mage->getArmor() / 1000 * 100 ?>%">
-                                            Armor : <?= $mage->getArmor() ?>
+                                            <?= $mage->getArmor() ?>
                                         </div>
                                     </div>
 
@@ -194,12 +225,12 @@
                                     </div>
                                     <div class="progress" role="progressbar" aria-label="Basic example" aria-valuenow="<?= $archer->getAttack() / 1000 * 100 ?>" aria-valuemin="0" aria-valuemax="100">
                                         <div class="progress-bar bg-info" style="width: <?= $archer->getAttack() / 1000 * 100 ?>%">
-                                            Attack : <?= $archer->getAttack() ?>
+                                            <?= $archer->getAttack() ?>
                                         </div>
                                     </div>
                                     <div class="progress" role="progressbar" aria-label="Basic example" aria-valuenow="<?= $archer->getArmor() / 1000 * 100 ?>" aria-valuemin="0" aria-valuemax="100">
                                         <div class="progress-bar bg-warning" style="width: <?= $archer->getArmor() / 1000 * 100 ?>%">
-                                            Armor : <?= $archer->getArmor() ?>
+                                            <?= $archer->getArmor() ?>
                                         </div>
                                     </div>
 
@@ -219,6 +250,11 @@
                     </div>
 
                 </div>
+
+                <!-- bouton reset -->
+                <div class="row">
+                    <a href="deco.php" class="text-center"><button class="btn"><img src="https://upload.wikimedia.org/wikipedia/commons/a/ae/Quick_restart.png" style="width:50px" /></button></a>
+                </div>
             </form>
         </div>
 
@@ -232,7 +268,7 @@
         </div>
 
         <!-- BATTLE ARENA -->
-        <div class="col-7 border  border-5 border-dark rounded arena">
+        <div class="col-7 border  border-5 border-dark arena">
             <div class="row p-3 justify-content-center">
                 <?php
 
@@ -270,11 +306,11 @@
 
                         // if warrior ou monster n'ont plus de point de vie, game over
                         if ($warrior->getHealth() <= 0) {
-                            echo "<h1>GAME OVER</h1>
-                            <a href='deco.php'>Rejouer</a>";
+                            echo '<div class="text-center"><h1>GAME OVER</h1></div>
+                            <a href="deco.php" class="text-center"><button class="btn reset"><img src="https://upload.wikimedia.org/wikipedia/commons/a/ae/Quick_restart.png" style="width:50px"/></button></a>';
                         } else if ($monster->getHealth() <= 0) {
-                            echo "<h1>YOU WIN</h1>
-                            <a href='deco.php'>Rejouer</a>";
+                            echo '<div class="text-center"><h1>YOU WIN</h1></div>
+                            <a href="deco.php" class="text-center"><button class="btn reset"><img src="https://upload.wikimedia.org/wikipedia/commons/a/ae/Quick_restart.png" style="width:50px"/></button></a>';
                         } else {
                             showWarrior($warrior);
                             showMonster($monster);
@@ -290,11 +326,11 @@
 
                         // if mage ou monster n'ont plus de point de vie game over
                         if ($mage->getHealth() <= 0) {
-                            echo "<h1>GAME OVER</h1>
-                            <a href='deco.php'>Rejouer</a>";
+                            echo '<div class="text-center"><h1>GAME OVER</h1></div>
+                            <a href="deco.php" class="text-center"><button class="btn reset"><img src="https://upload.wikimedia.org/wikipedia/commons/a/ae/Quick_restart.png" style="width:50px"/></button></a>';
                         } else if ($monster->getHealth() <= 0) {
-                            echo "<h1>YOU WIN</h1>
-                            <a href='deco.php'>Rejouer</a>";
+                            echo '<div class="text-center"><h1>YOU WIN</h1></div>
+                            <a href="deco.php" class="text-center"><button class="btn reset"><img src="https://upload.wikimedia.org/wikipedia/commons/a/ae/Quick_restart.png" style="width:50px"/></button></a>';
                         } else {
                             showPlayer($mage);
                             showMonster($monster);
@@ -312,11 +348,11 @@
 
                         // if archer ou monster n'ont plus de point de vie game over
                         if ($archer->getHealth() <= 0) {
-                            echo "<h1>GAME OVER
-                            <a href='deco.php'>Rejouer</a></h1>";
+                            echo '<div class="text-center"><h1>GAME OVER</h1></div>
+                            <a href="deco.php" class="text-center"><button class="btn reset"><img src="https://upload.wikimedia.org/wikipedia/commons/a/ae/Quick_restart.png" style="width:50px"/></button></a>';
                         } else if ($monster->getHealth() <= 0) {
-                            echo "<h1>YOU WIN
-                            <a href='deco.php'>Rejouer</a></h1>";
+                            echo '<div class="text-center"><h1>YOU WIN</h1></div>
+                            <a href="deco.php" class="text-center"><button class="btn reset"><img src="https://upload.wikimedia.org/wikipedia/commons/a/ae/Quick_restart.png" style="width:50px"/></button></a>';
                         } else {
                             showPlayer($archer);
                             showMonster($monster);
@@ -342,16 +378,14 @@
                         } else {
                             echo '
                                 <div class="h3 fw-bold row text-center chooseHero">
-                                Click on the cards and choose your hero
+                                <p>Click on the cards and choose your hero</p>
                                 </div>';
                         }
                 ?>
             </div>
         </div>
     </div>
-    <div class="row">
-        <a href="deco.php" class="text-center"><input type="button" value="reset"></a>
-    </div>
+
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
 
